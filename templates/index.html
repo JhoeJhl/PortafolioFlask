@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="relative overflow-hidden pt-16 pb-32 flex flex-col items-center justify-center min-h-[85vh]">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+    
+    <div class="text-center px-6 z-10 max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold tracking-wider mb-8 border border-cyan-500/20">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            Técnico Medio & Futuro Ingeniero
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-white leading-[1.1]">
+            Construyendo soluciones <br class="hidden md:block" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500">
+                escalables y modernas.
+            </span>
+        </h1>
+        
+        <p class="text-slate-400 md:text-xl text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+            Especializado en el ecosistema <strong>Laravel, Vue.js y bases de datos relacionales</strong>. 
+            Transformo lógica compleja en interfaces limpias y eficientes.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="/proyectos" class="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 rounded-full font-bold hover:bg-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] transition-all duration-300 transform hover:-translate-y-1 text-center">
+                Ver mis proyectos
+            </a>
+            <a href="#" class="w-full sm:w-auto px-8 py-4 bg-slate-800/50 backdrop-blur-sm text-white rounded-full font-bold border border-slate-700 hover:bg-slate-700 hover:border-slate-500 transition-all duration-300 text-center">
+                Descargar CV
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
