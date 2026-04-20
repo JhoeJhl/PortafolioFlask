@@ -1,17 +1,62 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="relative overflow-hidden pt-16 pb-32 flex flex-col items-center justify-center min-h-[85vh]">
-    <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] -z-10 pointer-events-none">
-    </div>
+<style>
+    .slider-container {
+        width: 100%;
+        overflow: hidden;
+        padding: 3rem 0;
+        /* Degradado en los bordes para un acabado profesional */
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
 
-    <div class="text-center px-6 z-10 max-w-4xl mx-auto">
-        <div
-            class="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold tracking-wider mb-8 border border-cyan-500/20">
-            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-            Técnico Medio & Futuro Ingeniero
+    .slider-track {
+        display: flex;
+        align-items: center;
+        width: calc(150px * 18); /* Ajustado para 9 iconos originales + 9 duplicados */
+        animation: scroll 30s linear infinite;
+    }
+
+    .slider-container:hover .slider-track {
+        animation-play-state: paused;
+    }
+
+    .slide {
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        perspective: 1000px;
+    }
+
+    .slide img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        /* RESALTADO: Colores vivos y sombra de apoyo constante */
+        filter: saturate(1.2) drop-shadow(0 0 8px rgba(34, 211, 238, 0.2));
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* EFECTO AL PASAR EL MOUSE: Más brillo y escala */
+    .slide img:hover {
+        filter: saturate(1.5) drop-shadow(0 0 15px rgba(34, 211, 238, 0.6));
+        transform: scale(1.25) translateY(-10px);
+        cursor: pointer;
+    }
+
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-150px * 9)); }
+    }
+</style>
+
+<section class="relative overflow-hidden pt-16 pb-32 flex flex-col items-center justify-center min-h-[85vh]">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+
+    <div class="text-center px-7 z-10 max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 py-1 px-4 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold tracking-wider mb-8 border border-cyan-500/20">
+            Desarrollador Full Stack
         </div>
 
         <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-white leading-[1.1]">
@@ -22,151 +67,84 @@
         </h1>
 
         <p class="text-slate-400 md:text-xl text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-            Especializado en el ecosistema <strong>Laravel, Vue.js y bases de datos relacionales</strong>.
-            Transformo lógica compleja en interfaces limpias y eficientes.
+            Especializado en el ecosistema <strong>Laravel, Vue.js y bases de datos relacionales</strong>. Transformo lógica compleja en interfaces limpias y eficientes.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="/contacto"
-                class="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 rounded-full font-bold hover:bg-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] transition-all duration-300 transform hover:-translate-y-1 text-center">
+            <a href="/contacto" class="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 rounded-full font-bold hover:bg-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] transition-all duration-300 transform hover:-translate-y-1 text-center">
                 Trabajemos juntos
             </a>
-            <a href="#"
-                class="w-full sm:w-auto px-8 py-4 bg-slate-800/50 backdrop-blur-sm text-white rounded-full font-bold border border-slate-700 hover:bg-slate-700 hover:border-slate-500 transition-all duration-300 text-center">
+            <a href="/cv.pdf" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-slate-800/50 backdrop-blur-sm text-white rounded-full font-bold border border-slate-700 hover:bg-slate-700 hover:border-slate-500 transition-all duration-300 text-center">
                 Descargar CV
             </a>
         </div>
     </div>
 </section>
 
-<!-- Stats Section -->
-<section class="py-12 border-y border-white/5 bg-slate-900/20">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <div class="text-3xl md:text-4xl font-bold text-white mb-1">+2</div>
-                <div class="text-slate-500 text-sm font-medium uppercase tracking-widest">Años de Exp.</div>
-            </div>
-            <div>
-                <div class="text-3xl md:text-4xl font-bold text-white mb-1">+10</div>
-                <div class="text-slate-500 text-sm font-medium uppercase tracking-widest">Proyectos</div>
-            </div>
-            <div>
-                <div class="text-3xl md:text-4xl font-bold text-white mb-1">99%</div>
-                <div class="text-slate-500 text-sm font-medium uppercase tracking-widest">Satisfacción</div>
-            </div>
-            <div>
-                <div class="text-3xl md:text-4xl font-bold text-white mb-1">24/7</div>
-                <div class="text-slate-500 text-sm font-medium uppercase tracking-widest">Compromiso</div>
+<section class="py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-2xl font-bold text-white/80 mb-12 uppercase tracking-widest text-sm">Stack Tecnológico</h2>
+        
+        <div class="slider-container">
+            <div class="slider-track">
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="TailwindCSS"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="invert"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" alt="Ubuntu"></div>
+
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="TailwindCSS"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="invert"></div>
+                <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" alt="Ubuntu"></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Services / What I do -->
-<section class="py-24 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div class="max-w-2xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">¿En qué puedo <span
-                        class="text-cyan-400">ayudarte?</span></h2>
-                <p class="text-slate-400 text-lg">Ofrezco soluciones integrales que combinan potencia técnica con una
-                    experiencia de usuario excepcional.</p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div
-                class="p-8 rounded-3xl bg-slate-900/40 border border-white/5 hover:border-cyan-500/30 transition-colors group">
-                <div
-                    class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 transition-transform">
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Desarrollo Web Full Stack</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Aplicaciones robustas desde el backend hasta el
-                    frontend, utilizando las tecnologías más modernas.</p>
-            </div>
-
-            <div
-                class="p-8 rounded-3xl bg-slate-900/40 border border-white/5 hover:border-blue-500/30 transition-colors group">
-                <div
-                    class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.58 4 8 4s8-1.79 8-4M4 7c0-2.21 3.58-4 8-4s8 1.79 8 4m0 5c0 2.21-3.58 4-8 4s-8-1.79-8-4" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Diseño de Base de Datos</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Arquitecturas de datos optimizadas para el
-                    rendimiento, la seguridad y la integridad de la información.</p>
-            </div>
-
-            <div
-                class="p-8 rounded-3xl bg-slate-900/40 border border-white/5 hover:border-purple-500/30 transition-colors group">
-                <div
-                    class="w-12 h-12 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition-transform">
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">Optimización de Rendimiento</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Auditoría y mejora de aplicaciones existentes para
-                    garantizar tiempos de carga ultrarrápidos.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Featured Projects Preview -->
 <section class="py-24 bg-slate-900/10">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Proyectos <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Destacados</span>
-                </h2>
-                <p class="text-slate-400 text-lg">Una pequeña muestra de los desafíos que he resuelto recientemente.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Proyectos <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Desarrollados</span></h2>
             </div>
-            <a href="/contacto"
-                class="text-cyan-400 font-semibold hover:text-cyan-300 transition-colors flex items-center gap-2 group">
+            <a href="/contacto" class="text-cyan-400 font-semibold hover:text-cyan-300 transition-colors flex items-center gap-2 group">
                 Hablemos de tu proyecto
-                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
             </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {% for p in proyectos[:2] %}
-            <article
-                class="group bg-slate-900/50 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden hover:border-cyan-500/50 transition-all duration-500">
-                <div class="p-8">
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        {% for tech in p.tecnologias %}
-                        <span
-                            class="text-[10px] uppercase tracking-wider font-bold bg-slate-800/80 text-cyan-400/80 px-2.5 py-1 rounded-lg border border-white/5">
-                            {{ tech }}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for p in proyectos %}
+            <article class="group bg-slate-900/40 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden hover:border-cyan-500/40 hover:bg-slate-900/60 transition-all duration-500 flex flex-col h-full shadow-lg">
+                <div class="p-8 flex-grow">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex flex-wrap gap-2">
+                            {% for tech in p.tecnologias %}
+                            <span class="text-[9px] uppercase tracking-tighter font-bold bg-white/5 text-slate-400 px-2 py-0.5 rounded-md border border-white/5">
+                                {{ tech }}
+                            </span>
+                            {% endfor %}
+                        </div>
+                        <span class="text-[10px] font-bold px-2 py-1 rounded-lg {% if p.nivel == 'Avanzado' %}bg-purple-500/10 text-purple-400 border border-purple-500/20{% elif p.nivel == 'Intermedio' %}bg-blue-500/10 text-blue-400 border border-blue-500/20{% else %}bg-slate-500/10 text-slate-400 border border-slate-500/20{% endif %}">
+                            {{ p.nivel }}
                         </span>
-                        {% endfor %}
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">{{
-                        p.titulo }}</h3>
-                    <p class="text-slate-400 mb-8 leading-relaxed">
+                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors leading-tight">{{ p.titulo }}</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
                         {{ p.descripcion }}
                     </p>
-                    <a href="{{ p.link }}"
-                        class="inline-flex items-center text-sm font-bold text-white bg-white/5 px-6 py-3 rounded-xl hover:bg-white/10 transition-colors border border-white/10">
-                        Explorar Caso
-                        <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </a>
                 </div>
             </article>
             {% endfor %}
@@ -174,53 +152,61 @@
     </div>
 </section>
 
-<!-- Technologies Section -->
-<div class="slider-container">
-    <div class="slider-track">
-        <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                alt="React"></div>
-        <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                alt="Node.js"></div>
-        <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                alt="Python"></div>
-        <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
-                alt="Docker"></div>
-        <div class="slide"><img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
-                alt="AWS"></div>
+<!-- Methodology / Process Section -->
+<section class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="bg-gradient-to-br from-slate-900 to-slate-950 border border-white/10 rounded-[3rem] p-12 md:p-20 relative overflow-hidden shadow-2xl">
+            <!-- Background Decoration -->
+            <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight">Mi Filosofía de <span class="text-cyan-400">Trabajo</span></h2>
+                    <p class="text-slate-400 text-lg mb-10 leading-relaxed">
+                        No solo escribo código; diseño sistemas que resuelven problemas reales. Mi enfoque se centra en tres pilares fundamentales para garantizar el éxito de cualquier desarrollo.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="/contacto" class="px-8 py-4 bg-white text-slate-900 rounded-full font-bold hover:bg-cyan-400 transition-all text-center">
+                            Iniciar Colaboración
+                        </a>
+                        <a href="https://github.com/JhoeJhl" target="_blank" class="px-8 py-4 bg-slate-800/50 text-white rounded-full font-bold border border-slate-700 hover:bg-slate-700 transition-all text-center">
+                            Ver GitHub
+                        </a>
+                    </div>
+                </div>
 
-        <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                alt="React"></div>
-        <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                alt="Node.js"></div>
-        <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                alt="Python"></div>
-        <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
-                alt="Docker"></div>
-        <div class="slide"><img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
-                alt="AWS"></div>
-    </div>
-</div>
-
-<!-- Final CTA -->
-<section class="py-24 px-6">
-    <div
-        class="max-w-5xl mx-auto bg-gradient-to-br from-cyan-600 to-blue-700 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
-        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-white/10 rounded-full blur-[80px]"></div>
-        <div class="relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">¿Tienes un proyecto en mente?</h2>
-            <p class="text-cyan-100 text-lg mb-10 max-w-xl mx-auto">Estoy disponible para nuevos desafíos y
-                colaboraciones. Hablemos sobre cómo puedo aportar valor a tu equipo.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/contacto"
-                    class="px-8 py-4 bg-white text-blue-700 rounded-full font-bold hover:bg-cyan-50 transition-colors text-center">
-                    Empieza ahora
-                </a>
-                <a href="/contacto"
-                    class="px-8 py-4 bg-blue-800/30 backdrop-blur-sm text-white border border-white/20 rounded-full font-bold hover:bg-blue-800/50 transition-colors text-center">
-                    Hablemos de tu idea
-                </a>
+                <div class="space-y-6">
+                    <!-- Feature 1 -->
+                    <div class="flex gap-6 p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+                        <div class="flex-shrink-0 w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-400">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold mb-1">Código Limpio y Escalable</h4>
+                            <p class="text-slate-400 text-sm">Uso de patrones de diseño y estándares (SOLID) para un mantenimiento sin dolor a largo plazo.</p>
+                        </div>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="flex gap-6 p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+                        <div class="flex-shrink-0 w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold mb-1">Rendimiento Optimizado</h4>
+                            <p class="text-slate-400 text-sm">Consultas SQL eficientes y carga progresiva para interfaces rápidas y fluidas.</p>
+                        </div>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="flex gap-6 p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+                        <div class="flex-shrink-0 w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center text-green-400">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold mb-1">Enfoque Mobile-First</h4>
+                            <p class="text-slate-400 text-sm">Experiencia de usuario garantizada en cualquier dispositivo mediante diseño responsivo nativo.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

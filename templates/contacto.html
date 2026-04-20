@@ -8,7 +8,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
             <div>
-                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">Hablemos sobre tu próximo <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">proyecto.</span></h2>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">Formulario de<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500"> contacto.</span></h2>
                 <p class="text-slate-400 text-lg mb-10 leading-relaxed">
                     Si tienes una idea o un proyecto en mente, no dudes en contactarme. Responderé lo antes posible a través de WhatsApp.
                 </p>
@@ -20,7 +20,7 @@
                         </div>
                         <div class="ml-6">
                             <h4 class="text-white font-semibold text-lg">WhatsApp</h4>
-                            <p class="text-slate-400">Respuesta inmediata</p>
+                            <p class="text-slate-400">Respuesta lo mas antes posible</p>
                         </div>
                     </div>
                     
@@ -41,17 +41,17 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label for="nombre" class="block text-sm font-medium text-slate-300 mb-2">Nombre completo</label>
-                            <input type="text" id="nombre" name="nombre" class="w-full bg-slate-950/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all" placeholder="Juan Pérez" required>
+                            <input type="text" id="nombre" name="nombre" class="w-full bg-slate-950/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all" placeholder="Nombre del cliente" required>
                         </div>
                         <div>
                             <label for="asunto" class="block text-sm font-medium text-slate-300 mb-2">Asunto</label>
-                            <input type="text" id="asunto" name="asunto" class="w-full bg-slate-950/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all" placeholder="Cotización de página web" required>
+                            <input type="text" id="asunto" name="asunto" class="w-full bg-slate-950/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all" placeholder="Describa el asunto..." required>
                         </div>
                     </div>
 
                     <div>
                         <label for="mensaje" class="block text-sm font-medium text-slate-300 mb-2">Tu mensaje</label>
-                        <textarea id="mensaje" name="mensaje" rows="5" class="w-full bg-slate-950/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all resize-none" placeholder="Hola Joel, me gustaría hablar contigo sobre..." required></textarea>
+                        <textarea id="mensaje" name="mensaje" rows="5" class="w-full bg-slate-950/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all resize-none" placeholder="Describa el proyecto a realizar..." required></textarea>
                     </div>
 
                     <button type="submit" class="w-full bg-green-600 text-white font-bold py-4 rounded-xl hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-green-500/25 flex items-center justify-center gap-2">
@@ -74,7 +74,7 @@
         const mensaje = document.getElementById('mensaje').value;
         
         // Reemplaza con tu número de teléfono real (incluyendo código de país sin el +)
-        const telefono = "591XXXXXX"; 
+        const telefono = "59162316223"; 
         
         const texto = `Hola Joel, mi nombre es *${nombre}*.\n\n*Asunto:* ${asunto}\n*Mensaje:* ${mensaje}`;
         const url = `https://wa.me/${telefono}?text=${encodeURIComponent(texto)}`;

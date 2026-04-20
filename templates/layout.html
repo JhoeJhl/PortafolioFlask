@@ -3,32 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joel Pinto | Full Stack Developer</title>
+    <title>Portafolio | Joel Pinto</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-slate-950 text-slate-200 antialiased flex flex-col min-h-screen selection:bg-cyan-500 selection:text-white">
 
-    <nav class="fixed w-full z-50 bg-slate-950/80 backdrop-blur-lg border-b border-white/10 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+    <nav class="fixed w-full z-50 transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-24">
                 <div class="flex-shrink-0">
-                    <a href="/" class="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
-                        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-sm">JP</span>
-                        Joel Pinto
+                    <a href="/" class="group flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-110 transition-transform">
+                            <span class="text-white font-bold text-lg tracking-tighter">JP</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-white font-bold text-lg tracking-tight leading-none">Joel Pinto</span>
+                            <span class="text-cyan-400/80 font-medium text-[10px] uppercase tracking-[0.2em] leading-tight">Desarrollador de Software</span>
+                        </div>
                     </a>
                 </div>
                 
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="/" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Inicio</a>
-                    <a href="/contacto" class="text-sm font-medium bg-white text-slate-900 px-5 py-2.5 rounded-full hover:bg-cyan-400 hover:text-slate-900 transition-all shadow-[0_0_15px_rgba(34,211,238,0.3)] hover:shadow-[0_0_25px_rgba(34,211,238,0.6)]">Contacto</a>
+                <div class="hidden md:flex items-center gap-10">
+                    <a href="/" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group py-2">
+                        Inicio
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="/contacto" class="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 text-sm font-bold rounded-xl hover:bg-cyan-400 transition-all shadow-xl shadow-white/5 active:scale-95">
+                        Consultoría
+                    </a>
                 </div>
 
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none p-2">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none p-2 rounded-lg hover:bg-white/5">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -37,13 +45,31 @@
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-white/10 absolute w-full">
-            <div class="px-4 pt-2 pb-6 space-y-2 shadow-2xl">
-                <a href="/" class="block px-3 py-3 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-white/5">Inicio</a>
-                <a href="/contacto" class="block px-3 py-3 mt-4 text-center rounded-lg text-base font-medium bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg">Contacto</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-950/95 backdrop-blur-xl border-b border-white/10 absolute w-full shadow-2xl overflow-hidden">
+            <div class="px-6 pt-4 pb-10 space-y-4">
+                <a href="/" class="flex items-center justify-between px-4 py-4 rounded-2xl text-lg font-bold text-slate-300 hover:text-white hover:bg-white/5 transition-all">
+                    Inicio
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 5l7 7-7 7"/></svg>
+                </a>
+                <a href="/contacto" class="block w-full px-4 py-4 text-center rounded-2xl text-lg font-bold bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/20 active:scale-[0.98] transition-all">
+                    Iniciar Proyecto
+                </a>
             </div>
         </div>
     </nav>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('bg-slate-950/80', 'backdrop-blur-lg', 'border-b', 'border-white/5', 'h-20');
+                nav.querySelector('.h-24').classList.replace('h-24', 'h-20');
+            } else {
+                nav.classList.remove('bg-slate-950/80', 'backdrop-blur-lg', 'border-b', 'border-white/5', 'h-20');
+                nav.querySelector('.h-20')?.classList.replace('h-20', 'h-24');
+            }
+        });
+    </script>
 
     <div class="h-20"></div>
 
