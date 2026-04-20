@@ -27,5 +27,9 @@ def index():
 def proyectos():
     return render_template('proyectos.html', proyectos=proyectos_data)
 
+@app.route('/contacto')
+def contacto():
+    return render_template('contacto.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
